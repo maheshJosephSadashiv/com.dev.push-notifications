@@ -5,7 +5,13 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public class ReactiveWebFlux {
-
+/*
+1. Subscribe to the PUBLISHER
+2. PUBLISHER sends the subscription
+3. SUBSCRIBER request(n)
+5. OnNext(1) -> OnNext(n)
+6. OnComplete/OnError
+ */
     @Test
     public void monoSuccessTest(){
         Mono<String> monoString = Mono.just("This is a test!").log();
