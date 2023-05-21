@@ -21,6 +21,8 @@ dependencies {
 	implementation group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
 	implementation group: 'org.springframework.data', name: 'spring-data-r2dbc', version: '3.1.0'
 	implementation group: 'org.flywaydb', name: 'flyway-core', version: '9.18.0'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-r2dbc', version: '3.1.0'
+	implementation group: 'io.r2dbc', name: 'r2dbc-postgresql', version: '0.8.13.RELEASE'
 
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

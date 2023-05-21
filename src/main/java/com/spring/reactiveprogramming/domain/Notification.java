@@ -1,16 +1,18 @@
 package com.spring.reactiveprogramming.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.sql.Timestamp;
 import java.util.UUID;
 
 @Data
+@ToString
+@Builder
+@NoArgsConstructor
 @AllArgsConstructor
-
+@Table(value = "notifications")
 public class Notification {
     @Id
     private UUID id;
