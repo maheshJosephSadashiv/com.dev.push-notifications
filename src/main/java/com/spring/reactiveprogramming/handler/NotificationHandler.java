@@ -29,8 +29,13 @@ public class NotificationHandler {
         return notificationService.getNotificationsForUser("A");
     }
 
-    @GetMapping(value = "/{name}")
-    public Mono<Notification> getOne(@PathVariable UUID name) {
-        return notificationRepository.findById(name);
+    @GetMapping(value = "/getStreamFromDB", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    Flux<Notification> getNotificationStreamFromDatabase(){
+        return notificationRepository.findAll();
+    }
+
+    @GetMapping(value = "/{id}")
+    public Mono<Notification> getOne(@PathVariable UUID id) {
+        return notificationRepository.findById(id);
     }
 }
