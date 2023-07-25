@@ -5,6 +5,7 @@ import com.spring.reactiveprogramming.domain.Notification;
 import com.spring.reactiveprogramming.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,4 +39,11 @@ public class NotificationHandler {
     public Mono<Notification> getOne(@PathVariable UUID id) {
         return notificationRepository.findById(id);
     }
+
+    @GetMapping("/userNotification/{userID}")
+    public Flux<ServerSentEvent<Flux<Notification>>> streamLastMessage(@PathVariable String userID) {
+        return notificationService.getNotificationsByUserToID(userID);
+    }
+
+
 }
